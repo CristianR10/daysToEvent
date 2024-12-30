@@ -9,7 +9,7 @@ import Head from "next/head";
 import Counter from "../components/Counter";
 
 import Timeline from "../components/Timeline";
-import Forecast from "../components/Forecast";
+// import Forecast from "../components/Forecast";
 import Sound from "../components/Sound";
 import SideBar from "@/components/SideBar";
 
@@ -63,7 +63,7 @@ const Main = () => {
             <>
               <div className={styles.content}>
                 <Counter />
-                <Forecast />
+                {/* <Forecast /> */}
               </div>
               <div className={styles.footer}>
                 <Sound />

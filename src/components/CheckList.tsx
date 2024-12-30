@@ -87,7 +87,7 @@ const CheckList = ({ data, type }: CheckListProps) => {
   }
 
   return (
-    <ul className={styles.checklist}>
+    <ul className={styles.checklist}>      
       {checkList?.map((item: any, index: any) => (
         <li
           key={`checklist-item-${index}-${item.title}`}

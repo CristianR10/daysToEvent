@@ -23,7 +23,7 @@ export const DataStorage = ({ children }) => {
   const [eventLink, setEventLink] = useState(
     "https://www.airbnb.com/trips/v1/09bf28bd-d9cf-4f43-841d-720f93c1aa5c/ro/RESERVATION_USER_CHECKIN/HM42EYB99Y?c=.pi80.pkdmlyYWxpdHkvc2hhcmVfaXRpbmVyYXJ5&euid=f5d4a217-3386-7ae1-686a-ee0cca75a00d"
   );
-  const [eventDate, setEventDate] = useState("2023-09-29T15:00:00.000Z");
+  const [eventDate, setEventDate] = useState("2025-01-15T15:00:00.000Z");
   const [sidebarOpened, setSidebarOpened] = useState(false);
   const [eventFinished, setEventFinished] = useState(false);
 

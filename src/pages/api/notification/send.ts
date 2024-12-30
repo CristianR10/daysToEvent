@@ -38,9 +38,8 @@ export default async function handler(
   const catchRegistrations: string[] = [];
 
   const todayDate = moment.tz(TIME_ZONE).get("day");
-  const eventDate = moment.tz("2023-09-29T15:00:00.000Z", TIME_ZONE).get("day");
-  const daysLeft = eventDate - todayDate;
-
+  const eventDate = moment.tz("2025-01-15T15:00:00.000Z", TIME_ZONE).get("day");
+  const daysLeft = eventDate - todayDate;  
   let title = "Tá chegando a horaaa";
   let message = "";
 

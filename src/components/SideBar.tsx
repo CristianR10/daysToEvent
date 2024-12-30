@@ -148,6 +148,7 @@ const SideBar = () => {
                   loading="lazy"
                   className={styles.sidebar__iframeMap}
                 ></iframe>
+                <button>Saiba Mais</button>
               </div>
             </>
           )}

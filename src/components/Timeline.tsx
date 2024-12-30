@@ -8,13 +8,16 @@ import styles from "./../styles/components/Timeline.module.scss";
 
 const Timeline = () => {
   const { eventDate } = useContext(DataContext);
-  const today = moment().get("D");
-  const dayOfTheEvent = moment(eventDate).get("D");
-  const calendar = Array(dayOfTheEvent).fill("•");
 
-  if (today === dayOfTheEvent) {
-    return null
-  }
+  // Obtém a data atual (completa: ano, mês, dia)
+  const today = moment().startOf("day");
+  const eventDay = moment(eventDate).startOf("day");
+
+  // A quantidade de dias até o evento (contando o número total de dias até o evento)
+  const calendar = Array.from({ length: eventDay.diff(today, 'days') + 1 }, (_, index) => index + 1);
+
+  console.log('Hoje:', today.format("DD/MM/YYYY"));
+  console.log('Dia do Evento:', eventDay.format("DD/MM/YYYY"));
 
   return (
     <ul
@@ -23,18 +26,15 @@ const Timeline = () => {
         gridTemplateColumns: `repeat(${calendar.length}, 1fr)`,
       }}
     >
-      {calendar.map((bullet, index) => {
-        index = index + 1;
+      {calendar.map((dayIndex, index) => {
+        // Calcula a data para o índice atual
+        const currentDay = today.clone().add(dayIndex - 1, 'days');
+        
+        const isPast = currentDay.isBefore(today, 'day');
+        const isToday = currentDay.isSame(today, 'day');
+        const isLast = currentDay.isSame(eventDay, 'day');
 
-        const isPast = index < today;
-        const isToday = index === today;
-        const isLast = index === dayOfTheEvent;
-
-        if (index === today - 1) {
-          return <div key={randomUUIDv4()} style={{
-            visibility: "hidden"
-          }}>{bullet}</div>;
-        }
+        console.log("Current day:", currentDay.format("DD/MM/YYYY"));
 
         return (
           <li
@@ -43,9 +43,9 @@ const Timeline = () => {
               isToday ? styles.active : ""
             } ${isLast ? styles.last : ""} ${isPast ? styles.past : ""}`}
           >
-            {isToday && index.toString().padStart(2, "0")}
-            {!isToday && !isLast && bullet}
-            {isLast && index.toString().padStart(2, "0")}
+            {isToday && currentDay.format("DD")}
+            {!isToday && !isLast && "•"}
+            {isLast && currentDay.format("DD")}
           </li>
         );
       })}
