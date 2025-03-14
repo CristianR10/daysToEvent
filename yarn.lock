@@ -980,6 +980,18 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.41.0.tgz#080321c3b68253522f7646b55b577dd99d2950b3"
   integrity sha512-LxcyMGxwmTh2lY9FwHPGWOHmYFCZvbrFCBZL4FzSSsxsRPuhrYUg/49/0KDfW8tnIEaEHtfmn6+NPN+1DqaNmA==
 
+"@huggingface/inference@^3.5.2":
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/@huggingface/inference/-/inference-3.5.2.tgz#fe4abc44319a474a102a58b394ab9fe0ce478262"
+  integrity sha512-MIB1iZTtTBclIFmRL2fbkoxZTuMjziezx87nUzzsPwCX96c+ciilWV+QQZOjOmBlx1ZrfSuJbhwZ1pylSENZnQ==
+  dependencies:
+    "@huggingface/tasks" "^0.17.4"
+
+"@huggingface/tasks@^0.17.4":
+  version "0.17.4"
+  resolved "https://registry.yarnpkg.com/@huggingface/tasks/-/tasks-0.17.4.tgz#994aa563d046c0a29f190cc4d7cc1eeb20bfe9e5"
+  integrity sha512-LES7+OosthFKdqRL0e+bA2d4jfKmiQWuqahsPrv0+EsSZtdHdaZ3nje0f2g5wq4miHX4xWpBLuWJknjdnBwXsA==
+
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.11"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.11.tgz#88a04c570dbbc7dd943e4712429c3df09bc32844"

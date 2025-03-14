@@ -8,6 +8,7 @@ import {
   Camera,
   MapPin,
   CaretDoubleUp,
+  Airplane,
   GooglePhotosLogo,
 } from "@phosphor-icons/react";
 import data from "../database/checklist.json";
@@ -15,8 +16,9 @@ import dataBasketList from "../database/basket-checklist.json";
 import CheckList from "./CheckList";
 import { isMobile } from "react-device-detect";
 import DataContext from "@/context/DataContext";
+import ChatComponent from "./ChatComponent";
 
-type SideContentName = "backpack" | "pictures" | "map" | "links" | "basket";
+type SideContentName = "backpack" | "pictures" | "map" | "links" | "basket" | "roadmap";
 
 const SideBar = () => {
   const [mobileMenuExpanded, setMobileMenuExpanded] = useState(false);
@@ -34,12 +36,13 @@ const SideBar = () => {
     }
   }
 
+
+
   return (
     <>
       <div
-        className={`${styles.options} ${
-          mobileMenuExpanded ? styles.optionsMenuExpanded : ""
-        }`}
+        className={`${styles.options} ${mobileMenuExpanded ? styles.optionsMenuExpanded : ""
+          }`}
       >
         {isMobile && (
           <span
@@ -54,9 +57,8 @@ const SideBar = () => {
         )}
         <ul className={styles.menu}>
           <li
-            className={`${styles.menu__item} ${
-              sidebarOpened && sideContent === "backpack" ? styles.active : ""
-            }`}
+            className={`${styles.menu__item} ${sidebarOpened && sideContent === "backpack" ? styles.active : ""
+              }`}
           >
             <button onClick={() => handleSideBar("backpack")}>
               <Backpack size={24} color="white" />
@@ -74,12 +76,20 @@ const SideBar = () => {
           </li>
           <li
             className={`${styles.menu__item}
-            ${
-              sidebarOpened && sideContent === "pictures" ? styles.active : ""
-            }`}
+            ${sidebarOpened && sideContent === "pictures" ? styles.active : ""
+              }`}
           >
             <button onClick={() => handleSideBar("pictures")}>
               <Camera size={24} color="white" />
+            </button>
+          </li>
+          <li
+            className={`${styles.menu__item}
+            ${sidebarOpened && sideContent === "roadmap" ? styles.active : ""
+              }`}
+          >
+            <button onClick={() => handleSideBar("roadmap")}>
+              <Airplane size={24} color="white" />
             </button>
           </li>
           <li
@@ -94,9 +104,12 @@ const SideBar = () => {
       </div>
 
       <aside
-        className={`${styles.sidebar} ${
-          sidebarOpened ? styles.sidebarOpened : ""
-        }`}
+        className={`${styles.sidebar} ${sidebarOpened ? styles.sidebarOpened : ""
+          }`}
+        style={{
+          width: sideContent === "roadmap" ? "100%" : "",
+          maxWidth: sideContent === "roadmap" ? "93vw" : ""
+        }}
       >
         <div className={styles.sidebar__container}>
           {sideContent === "backpack" && (
@@ -215,6 +228,19 @@ const SideBar = () => {
                 Infelizmente não há nada ainda para mostrar por aqui. Volte
                 novamente mais tarde.
               </p>
+            </>
+          )}
+          {sideContent === "roadmap" && (
+            <>
+              <header className={styles.sidebar__header}>
+                <h2>Roteiro</h2>
+              </header>
+
+              <p className={styles.section}>
+                A ideia principal é, aumentar o slide em 100% - alguma coisa
+                depois chamar a api do chat gpt
+              </p>
+              <ChatComponent />
             </>
           )}
         </div>
