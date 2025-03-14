@@ -1,4 +1,4 @@
 Testando as IA,
 chat gpt deu erro 429, limite de requisição, talvez seja pago
-
+senha do linux admin
 testando llhama
